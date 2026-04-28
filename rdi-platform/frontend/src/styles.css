@@ -1,0 +1,666 @@
+/* ============================================================================
+   Design System Inspired by Apple
+   Based on DESIGN.md rules
+   ============================================================================ */
+
+:root {
+  /* Primary Colors */
+  --color-black: #000000;
+  --color-light-gray: #f5f5f7;
+  --color-near-black: #1d1d1f;
+  --color-white: #ffffff;
+  
+  /* Interactive Colors */
+  --color-apple-blue: #0071e3;
+  --color-link-blue: #0066cc;
+  --color-bright-blue: #2997ff;
+  
+  /* Text Colors */
+  --color-white-text: #ffffff;
+  --color-text-primary: #1d1d1f;
+  --color-text-secondary: rgba(0, 0, 0, 0.8);
+  --color-text-tertiary: rgba(0, 0, 0, 0.48);
+  
+  /* Dark Surfaces */
+  --color-dark-surface-1: #272729;
+  --color-dark-surface-2: #262628;
+  --color-dark-surface-3: #28282a;
+  --color-dark-surface-4: #2a2a2d;
+  --color-dark-surface-5: #242426;
+  
+  /* Button States */
+  --color-button-default-light: #fafafc;
+  --color-overlay: rgba(210, 210, 215, 0.64);
+  
+  /* Shadows */
+  --shadow-card: rgba(0, 0, 0, 0.22) 3px 5px 30px 0px;
+  
+  /* Typography */
+  --font-display: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-text: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-text);
+  background: var(--color-light-gray);
+  color: var(--color-text-primary);
+  line-height: 1.47;
+  letter-spacing: -0.374px;
+}
+
+/* ============================================================================
+   Navigation
+   ============================================================================ */
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: saturate(180%) blur(20px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  z-index: 1000;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.navbar-logo {
+  position: absolute;
+  left: 20px;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--color-white);
+  letter-spacing: -0.5px;
+  font-family: var(--font-display);
+}
+
+.navbar-nav {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+
+.navbar-nav a {
+  color: var(--color-white);
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0;
+  transition: opacity 0.3s ease;
+  cursor: pointer;
+}
+
+.navbar-nav a:hover {
+  opacity: 0.7;
+}
+
+.navbar-nav a.active {
+  border-bottom: 2px solid var(--color-apple-blue);
+  padding-bottom: 4px;
+}
+
+/* ============================================================================
+   Layout Containers
+   ============================================================================ */
+
+.app-container {
+  width: 100%;
+  min-height: 100vh;
+}
+
+.page-content {
+  padding-top: 48px;
+  width: 100%;
+}
+
+.section {
+  width: 100%;
+  padding: 80px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.section.dark {
+  background: var(--color-black);
+  color: var(--color-white);
+}
+
+.section.light {
+  background: var(--color-light-gray);
+  color: var(--color-text-primary);
+}
+
+.section-content {
+  max-width: 980px;
+  width: 100%;
+}
+
+/* ============================================================================
+   Typography - Hierarchy
+   ============================================================================ */
+
+/* Display Hero: 56px, 600, 1.07 line-height */
+.h-display-hero {
+  font-family: var(--font-display);
+  font-size: 56px;
+  font-weight: 600;
+  line-height: 1.07;
+  letter-spacing: -0.28px;
+  margin: 0;
+}
+
+/* Section Heading: 40px, 600, 1.10 line-height */
+.h-section {
+  font-family: var(--font-display);
+  font-size: 40px;
+  font-weight: 600;
+  line-height: 1.10;
+  letter-spacing: 0;
+  margin: 0 0 20px 0;
+}
+
+/* Tile Heading: 28px, 400, 1.14 line-height */
+.h-tile {
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 1.14;
+  letter-spacing: 0.196px;
+  margin: 0 0 12px 0;
+}
+
+/* Card Title: 21px, 700, 1.19 line-height */
+.h-card-bold {
+  font-family: var(--font-display);
+  font-size: 21px;
+  font-weight: 700;
+  line-height: 1.19;
+  letter-spacing: 0.231px;
+  margin: 0;
+}
+
+/* Sub-heading: 21px, 400, 1.19 line-height */
+.h-subheading {
+  font-family: var(--font-display);
+  font-size: 21px;
+  font-weight: 400;
+  line-height: 1.19;
+  letter-spacing: 0.231px;
+  margin: 0 0 10px 0;
+}
+
+/* Body: 17px, 400, 1.47 line-height */
+.body {
+  font-family: var(--font-text);
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.47;
+  letter-spacing: -0.374px;
+  margin: 0;
+}
+
+/* Body Emphasis: 17px, 600, 1.24 line-height */
+.body-emphasis {
+  font-family: var(--font-text);
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.24;
+  letter-spacing: -0.374px;
+  margin: 0;
+}
+
+/* Caption: 14px, 400, 1.29 line-height */
+.caption {
+  font-family: var(--font-text);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.29;
+  letter-spacing: -0.224px;
+  margin: 0;
+}
+
+/* Caption Bold: 14px, 600, 1.29 line-height */
+.caption-bold {
+  font-family: var(--font-text);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.29;
+  letter-spacing: -0.224px;
+  margin: 0;
+}
+
+/* ============================================================================
+   Buttons - Primary & Interactive
+   ============================================================================ */
+
+.btn {
+  font-family: var(--font-text);
+  font-size: 17px;
+  font-weight: 400;
+  padding: 8px 15px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+/* Primary Blue CTA */
+.btn-primary {
+  background: var(--color-apple-blue);
+  color: var(--color-white);
+  border: 1px solid transparent;
+}
+
+.btn-primary:hover {
+  background: #0a66d2;
+  box-shadow: 0 0 0 2px rgba(0, 113, 227, 0.2);
+}
+
+.btn-primary:active {
+  background: #0059b3;
+}
+
+.btn-primary:focus {
+  outline: 2px solid var(--color-apple-blue);
+  outline-offset: 2px;
+}
+
+/* Primary Dark */
+.btn-dark {
+  background: var(--color-near-black);
+  color: var(--color-white);
+  border: 1px solid transparent;
+}
+
+.btn-dark:hover {
+  background: #2d2d2f;
+}
+
+.btn-dark:focus {
+  outline: 2px solid var(--color-apple-blue);
+  outline-offset: 2px;
+}
+
+/* Pill Link (Learn More / Shop) */
+.btn-pill {
+  background: transparent;
+  color: var(--color-link-blue);
+  border: 1px solid var(--color-link-blue);
+  border-radius: 980px;
+  padding: 8px 20px;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.btn-pill:hover {
+  background: var(--color-link-blue);
+  color: var(--color-white);
+}
+
+.btn-pill.light {
+  color: var(--color-link-blue);
+  border-color: var(--color-link-blue);
+}
+
+.btn-pill.dark {
+  color: var(--color-bright-blue);
+  border-color: var(--color-bright-blue);
+}
+
+.btn-pill.dark:hover {
+  background: var(--color-bright-blue);
+  color: var(--color-text-primary);
+}
+
+/* Search/Filter Button */
+.btn-filter {
+  background: var(--color-button-default-light);
+  color: rgba(0, 0, 0, 0.8);
+  border: 3px solid rgba(0, 0, 0, 0.04);
+  border-radius: 11px;
+  padding: 10px 14px;
+  font-size: 16px;
+  transition: all 0.2s ease;
+}
+
+.btn-filter:hover {
+  border-color: rgba(0, 0, 0, 0.1);
+  background: #f0f0f3;
+}
+
+.btn-filter:focus {
+  outline: 2px solid var(--color-apple-blue);
+  outline-offset: 2px;
+}
+
+/* ============================================================================
+   Form Elements
+   ============================================================================ */
+
+.input-field {
+  width: 100%;
+  padding: 14px 16px;
+  font-family: var(--font-text);
+  font-size: 17px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 11px;
+  background: var(--color-white);
+  color: var(--color-text-primary);
+  letter-spacing: -0.374px;
+  transition: border 0.2s ease;
+}
+
+.input-field:focus {
+  outline: none;
+  border-color: var(--color-apple-blue);
+  box-shadow: 0 0 0 3px rgba(0, 113, 227, 0.1);
+}
+
+.input-field::placeholder {
+  color: rgba(0, 0, 0, 0.4);
+}
+
+/* ============================================================================
+   Cards & Containers
+   ============================================================================ */
+
+.card {
+  background: var(--color-white);
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: var(--shadow-card);
+  transition: all 0.3s ease;
+}
+
+.card.dark {
+  background: var(--color-dark-surface-1);
+  color: var(--color-white);
+  box-shadow: none;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.card:hover {
+  box-shadow: rgba(0, 0, 0, 0.3) 3px 10px 40px 0px;
+}
+
+.card.dark:hover {
+  box-shadow: none;
+  background: var(--color-dark-surface-2);
+}
+
+/* ============================================================================
+   Hero Section
+   ============================================================================ */
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 100px 20px;
+}
+
+.hero.dark {
+  background: var(--color-black);
+  color: var(--color-white);
+}
+
+.hero.light {
+  background: var(--color-light-gray);
+  color: var(--color-text-primary);
+}
+
+.hero-title {
+  font-family: var(--font-display);
+  font-size: 56px;
+  font-weight: 600;
+  line-height: 1.07;
+  letter-spacing: -0.28px;
+  margin: 0 0 16px 0;
+  max-width: 800px;
+}
+
+.hero-subtitle {
+  font-family: var(--font-text);
+  font-size: 21px;
+  font-weight: 400;
+  line-height: 1.47;
+  letter-spacing: -0.374px;
+  margin: 0 0 40px 0;
+  opacity: 0.85;
+  max-width: 600px;
+}
+
+.hero-cta {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ============================================================================
+   Search Section
+   ============================================================================ */
+
+.search-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  max-width: 600px;
+}
+
+.role-toggle {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.role-btn {
+  padding: 8px 16px;
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  background: var(--color-white);
+  color: var(--color-text-primary);
+  font-family: var(--font-text);
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.role-btn.active {
+  background: var(--color-apple-blue);
+  color: var(--color-white);
+  border-color: var(--color-apple-blue);
+}
+
+/* ============================================================================
+   Results Grid
+   ============================================================================ */
+
+.results-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+  width: 100%;
+  margin-top: 40px;
+}
+
+.result-card {
+  background: var(--color-white);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.result-card:hover {
+  box-shadow: rgba(0, 0, 0, 0.3) 3px 10px 40px 0px;
+  transform: translateY(-4px);
+}
+
+.result-card-header {
+  padding: 20px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.result-card-title {
+  font-family: var(--font-display);
+  font-size: 21px;
+  font-weight: 700;
+  margin: 0 0 8px 0;
+  color: var(--color-text-primary);
+}
+
+.result-card-subtitle {
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.6);
+  margin: 0;
+}
+
+.result-card-body {
+  padding: 20px;
+  flex: 1;
+}
+
+.result-card-footer {
+  padding: 16px 20px;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  display: flex;
+  gap: 8px;
+}
+
+/* ============================================================================
+   Status Messages
+   ============================================================================ */
+
+.error-message {
+  background: #fee;
+  border: 1px solid #fcc;
+  border-radius: 8px;
+  padding: 16px;
+  color: #c33;
+  font-size: 14px;
+  margin-top: 16px;
+}
+
+.success-message {
+  background: #efe;
+  border: 1px solid #cfc;
+  border-radius: 8px;
+  padding: 16px;
+  color: #360;
+  font-size: 14px;
+  margin-top: 16px;
+}
+
+.loading {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(0, 113, 227, 0.3);
+  border-top-color: var(--color-apple-blue);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ============================================================================
+   Responsive Design
+   ============================================================================ */
+
+@media (max-width: 768px) {
+  .navbar {
+    gap: 20px;
+  }
+  
+  .navbar-nav {
+    gap: 20px;
+  }
+  
+  .hero-title {
+    font-size: 40px;
+    line-height: 1.1;
+  }
+  
+  .hero-subtitle {
+    font-size: 18px;
+  }
+  
+  .h-section {
+    font-size: 32px;
+  }
+  
+  .results-grid {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 16px;
+  }
+  
+  .section {
+    padding: 60px 16px;
+  }
+  
+  .hero {
+    padding: 80px 16px;
+    min-height: 80vh;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar-nav {
+    display: none;
+  }
+  
+  .hero-title {
+    font-size: 32px;
+    line-height: 1.1;
+  }
+  
+  .hero-subtitle {
+    font-size: 16px;
+  }
+  
+  .h-section {
+    font-size: 24px;
+  }
+  
+  .results-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .hero-cta {
+    flex-direction: column;
+  }
+  
+  .btn {
+    width: 100%;
+  }
+}
