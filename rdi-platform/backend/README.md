@@ -120,9 +120,7 @@ This project is licensed under the MIT License. See the LICENSE file in the proj
 
 ## Related Documentation
 
-Database Setup: DATABASE_SETUP.md
 API Reference: API_DOCS.md
-Frontend Documentation: ../frontend/README.md
-Full Implementation Guide: ../IMPLEMENTATION_PRESENTATION.html
+
 
 
