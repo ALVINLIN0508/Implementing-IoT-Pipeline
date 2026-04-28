@@ -1,0 +1,27 @@
+services:
+  postgres:
+    image: postgres:15-alpine
+    container_name: rdi_platform_db
+    environment:
+      POSTGRES_DB: rdi_platform
+      POSTGRES_USER: rdi_user
+      POSTGRES_PASSWORD: rdi_password_secure
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - rdi_network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U rdi_user -d rdi_platform"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  postgres_data:
+
+networks:
+  rdi_network:
+    driver: bridge
