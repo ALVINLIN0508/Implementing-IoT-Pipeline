@@ -126,9 +126,6 @@ If you are exploring the repository for the first time, the suggested order is:
 4. `rdi-platform/frontend/README.md`
 5. design and supporting documentation folders
 
-## License
-
-This repository does not currently declare a repository-wide license. If you plan to reuse or redistribute any part of the project, check the relevant subfolders and project documentation for any individual licensing information.
 
 ## Summary
 
